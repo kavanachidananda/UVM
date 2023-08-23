@@ -1,4 +1,4 @@
-//code were sequencer class is not declared but we call 
+//code were sequencer class is not declared but we declare sequencer in agent
 
 `include "uvm_macros.svh"
 import uvm_pkg::*;
@@ -37,18 +37,6 @@ class object1 extends uvm_sequence#(object);
 
 endclass
 
-class transmitter extends uvm_sequencer#(object);
-
-  `uvm_component_utils(transmitter)
-
-  object obj;
- 
-  // This function is called a constructor.
-  function new(string name = "transmitter",uvm_component parent = null);
-	super.new(name,parent);
-  endfunction
-endclass
-
 class reciever extends uvm_driver#(object);
 
   `uvm_component_utils(reciever)
@@ -79,7 +67,7 @@ class agent extends uvm_agent;
 
   `uvm_component_utils(agent)
  
-  transmitter trans;
+  uvm_sequencer #(object) trans;
   reciever rec;
  
   function new(string name = "agent",uvm_component parent = null);
@@ -90,7 +78,7 @@ class agent extends uvm_agent;
     
 	super.build_phase(phase);
     
-	trans = transmitter::type_id::create("trans",this);
+    trans = uvm_sequencer #(object)::type_id::create("trans",this);
 	rec = reciever::type_id::create("rec",this);
 
   endfunction
@@ -151,3 +139,4 @@ initial begin
 end
 
 endmodule
+
