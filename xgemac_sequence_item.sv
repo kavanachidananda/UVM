@@ -14,12 +14,22 @@ class in_sequence_item extends uvm_sequence_item;
 
   //-----------------Declaration of signals-----------------
   //-----------------Packet Transmit signals-----------------
+    logic [63:0]    pkt_tx_data;
+    logic           pkt_tx_val;
+    logic           pkt_tx_sop;
+    logic           pkt_tx_eop;
+    logic [2:0]     pkt_tx_mod;
+    logic           pkt_tx_full;
   
-  
-  
- 
-  
-  extern function new (string name = "axi_master_transaction");    
+ //-----------------Packet Receive signals-----------------
+    logic           pkt_rx_ren;
+    logic           pkt_rx_avail;
+    logic [63:0]    pkt_rx_data;
+    logic           pkt_rx_val;
+    logic           pkt_rx_sop;
+    logic           pkt_rx_eop;
+    logic [2:0]     pkt_rx_mod;
+    logic           pkt_rx_err;
 endclass
 
     
