@@ -16,12 +16,12 @@ class in_sequence_item extends uvm_sequence_item;
 
   //-----------------Declaration of signals-----------------
   //-----------------Packet Transmit signals-----------------
-    logic [63:0]    pkt_tx_data;
-    logic           pkt_tx_val;
-    logic           pkt_tx_sop;
-    logic           pkt_tx_eop;
-    logic [2:0]     pkt_tx_mod;
-    logic           pkt_tx_full;
+    bit [63:0]    pkt_tx_data;
+   bit          pkt_tx_val;
+    bit         pkt_tx_sop;
+     bit         pkt_tx_eop;
+   bit [2:0]     pkt_tx_mod;
+   bit          pkt_tx_full;
   
  //-----------------Packet Receive signals-----------------
     logic           pkt_rx_ren;
