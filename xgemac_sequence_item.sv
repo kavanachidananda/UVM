@@ -3,14 +3,18 @@
 // This class holds the data items required to drive the stimulus to dut
 //--------------------------------------------------------------------------------------------
 class in_sequence_item extends uvm_sequence_item;
+  
   //factory registration
   `uvm_object_utils(in_sequence_item)
+  
   //class constructor
-  function axi_master_transaction::new(string name = "axi_master_transaction");
+  function axi_master_transaction::new(string name = "in_sequence_item");
     super.new(name);
   endfunction : new
-  
+
   //-----------------Declaration of signals-----------------
+  //-----------------Packet Transmit signals-----------------
+  
   
   
  
