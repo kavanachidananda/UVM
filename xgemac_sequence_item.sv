@@ -16,8 +16,8 @@ class in_sequence_item extends uvm_sequence_item;
 
   //-----------------Declaration of signals-----------------
   //-----------------Packet Transmit signals-----------------
-  rand enum{oversized_packet, undersized_packet, normal_packet} packet_type;
-  rand bit [63:0]   packet [$];
+  // rand enum{oversized_frame = 1, undersized_frame = 2, normal_frame = 3} frame_type;
+  rand bit [63:0]   frame [$];
        bit [63:0]   pkt_tx_data;  
        bit          pkt_tx_val;
        bit          pkt_tx_sop;
@@ -35,6 +35,15 @@ class in_sequence_item extends uvm_sequence_item;
        bit [2:0]    pkt_rx_mod;
        bit          pkt_rx_err;
   
+ //-----------------Constraint-----------------------------
+
+/*  constraint packet_type_size { if(frame_type==1)
+                                  (frame.size)*8 > 1514;
+                               else if(frame_type==2)
+                                  (frame.size)*8 < 60;
+                               else
+                                 (frame.size)*8 inside {[60:1514]};
+                              } */
 endclass
 
 `endif
