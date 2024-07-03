@@ -1,5 +1,5 @@
-`ifndef RESET_SEQ_ITEM_INCLUDED_
-`define RESET_SEQ_ITEM_INCLUDED_
+`ifndef IN_SEQUENCE_ITEM_INCLUDED_
+`define IN_SEQUENCE_ITEM_INCLUDED_
 //--------------------------------------------------------------------------------------------
 // Class: in_sequence_item
 // This class holds the data items required to drive the stimulus to dut
@@ -16,23 +16,26 @@ class in_sequence_item extends uvm_sequence_item;
 
   //-----------------Declaration of signals-----------------
   //-----------------Packet Transmit signals-----------------
-    bit [63:0]    pkt_tx_data;
-   bit          pkt_tx_val;
-    bit         pkt_tx_sop;
-     bit         pkt_tx_eop;
-   bit [2:0]     pkt_tx_mod;
-   bit          pkt_tx_full;
+  rand bit [63:0]   packet [$];
+       bit [63:0]   pkt_tx_data;  
+       bit          pkt_tx_val;
+       bit          pkt_tx_sop;
+       bit          pkt_tx_eop;
+  rand bit [2:0]    pkt_tx_mod;
+       bit          pkt_tx_full;
   
  //-----------------Packet Receive signals-----------------
-    logic           pkt_rx_ren;
-    logic           pkt_rx_avail;
-    logic [63:0]    pkt_rx_data;
-    logic           pkt_rx_val;
-    logic           pkt_rx_sop;
-    logic           pkt_rx_eop;
-    logic [2:0]     pkt_rx_mod;
-    logic           pkt_rx_err;
+       bit          pkt_rx_ren;
+       bit          pkt_rx_avail;
+       bit [63:0]   pkt_rx_data;
+       bit          pkt_rx_val;
+       bit          pkt_rx_sop;
+       bit          pkt_rx_eop;
+       bit [2:0]    pkt_rx_mod;
+       bit          pkt_rx_err;
+  
 endclass
+
 `endif
 
     
