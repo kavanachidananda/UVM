@@ -16,6 +16,7 @@ class in_sequence_item extends uvm_sequence_item;
 
   //-----------------Declaration of signals-----------------
   //-----------------Packet Transmit signals-----------------
+  rand enum{oversized_packet, undersized_packet, normal_packet} packet_type;
   rand bit [63:0]   packet [$];
        bit [63:0]   pkt_tx_data;  
        bit          pkt_tx_val;
