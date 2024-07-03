@@ -1,3 +1,5 @@
+`ifndef RESET_SEQ_ITEM_INCLUDED_
+`define RESET_SEQ_ITEM_INCLUDED_
 //--------------------------------------------------------------------------------------------
 // Class: in_sequence_item
 // This class holds the data items required to drive the stimulus to dut
@@ -31,6 +33,7 @@ class in_sequence_item extends uvm_sequence_item;
     logic [2:0]     pkt_rx_mod;
     logic           pkt_rx_err;
 endclass
+`endif
 
     
 
