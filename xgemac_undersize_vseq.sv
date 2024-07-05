@@ -12,17 +12,18 @@ class xgemac_undersize_vseq extends xge;
   extern function new(string name = "xgemac_undersize_vseq");
   extern task body();
 endclass
+    
   //class constructor
-  function xgemac_undersize_vseq::new(string name = "xgemac_undersize_vseq");
+  function xgemac_undersize_vseq :: new(string name = "xgemac_undersize_vseq");
   super.new(name);
 endfunction : new
 
-   task body();
+   task  xgemac_undersize_vseq :: body();
     `uvm_info(get_type_name(), "virtual_seq: Inside Body", UVM_LOW);
      in_seq_normal_h = in_seq_normal::type_id::create("in_seq_normal_h");
      
      fork
-      in_seq_normal_h.start(in_seqr_h);
+      in_seq_undersize_h.start(in_seqr_h);
       wish_seq_h.start(wish_seqr_h);
       reset_seq_h.start(reset_seqr_h);
     join
