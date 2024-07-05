@@ -1,30 +1,27 @@
-`ifndef AXI_MASTER_ENVIRONMENT_INCLUDED_
-`define AXI_MASTER_ENVIRONMENT_INCLUDED_
+`ifndef XGEMAC_ENVIRONMENT_INCLUDED_
+`define XGEMAC_ENVIRONMENT_INCLUDED_
 
-//import axi_env_pkg::*;
+class xgemac_env extends uvm_env;
+ `uvm_component_utils(xgemac_env)
 
-//`include "../master/axi_master_agent.sv"
-//`include "axi_master_scoreboard.sv"
-//`include "axi_master_coverage.sv"
-import uvm_pkg::*;
-`include "uvm_macros.svh"
-class axi_master_environment extends uvm_env;
- `uvm_component_utils(axi_master_environment)
+  in_agent in_agent_h;
+  out_agent out_agent_h;
+  wishbone_agent wishbone_agent_h;
+  reset_agent reset_agent_h;
+  xgemac_scoreboard xgemac_scoreboard_h;
+ 
 
-  axi_master_agent axi_master_agt_h;
-  axi_master_scoreboard axi_master_scb_h;
-  axi_master_subscriber axi_master_cov_h;
- // axi_master_coverage axi_master_cov_h;
-
-  function new(string name = "axi_master_environment", uvm_component parent);
+ function new(string name = "xgemac_env", uvm_component parent);
     super.new(name, parent);
   endfunction
 
   virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    axi_master_agt_h = axi_master_agent::type_id::create("axi_master_agt", this);
-    axi_master_scb_h = axi_master_scoreboard::type_id::create("axi_master_scb", this);
-    axi_master_cov_h = axi_master_subscriber::type_id::create("axi_master_cov", this);
+    in_agent_h = in_agent::type_id::create("in_agent_h", this);
+    out_agent_h = out_agent::type_id::create("out_agent_h", this);
+    wishbone_agent_h = wishbone_agent::type_id::create("wishbone_agent_h", this);
+    reset_agent_h = reset_agent::type_id::create("reset_agent_h", this);
+    xgemac_scoreboard_h =  xgemac_scoreboard::type_id::create(" xgemac_scoreboard_h", this);
   endfunction
 
   virtual function void connect_phase(uvm_phase phase);
