@@ -22,7 +22,7 @@ class xgemac_env extends uvm_env;
     wishbone_agent_h = wishbone_agent::type_id::create("wishbone_agent_h", this);
     reset_agent_h = reset_agent::type_id::create("reset_agent_h", this);
     xgemac_scoreboard_h =  xgemac_scoreboard::type_id::create(" xgemac_scoreboard_h", this);
-   set_config_int("out_agent_h", "is_active", UVM_PASSIVE);
+    set_config_int("out_agent_h", "is_active", UVM_PASSIVE);
   endfunction
 
   virtual function void connect_phase(uvm_phase phase);
