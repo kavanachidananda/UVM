@@ -28,7 +28,7 @@ class xgemac_env extends uvm_env;
   virtual function void connect_phase(uvm_phase phase);
    super.connect_phase(phase);
    in_agent_h.in_mon_h.in_port.connect(xgemac_scoreboard_h.in_active);
-   out_agent_h.out_mon_h.out_got_port.connect(xgemac_scoreboard_h.out_passive);
+   out_agent_h.out_mon_h.out_port.connect(xgemac_scoreboard_h.out_passive);
    wishbone_agent_h.wish_mon_h.wish_port.connect(xgemac_scoreboard_h.wish_active);
   endfunction
 
